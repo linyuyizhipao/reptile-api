@@ -1,12 +1,7 @@
 <?php
 
-require './vendor/autoload.php';
-
-
-
-
-
 class ReptilePage{
+    protected $RESERVE_TABLE_NAME = 'reptile_product';
     protected $client = '';
     protected $pdo = '';
     protected $startIndex = 1;
@@ -21,6 +16,24 @@ class ReptilePage{
         try {
             $this->pdo = new PDO('mysql:host=10.5.110.241:3307;dbname=test','xhxy','ts123456');
             $this->pdo->exec("SET names utf8");
+
+
+            $date = date("Ymd",time());
+            $this->RESERVE_TABLE_NAME = $this->RESERVE_TABLE_NAME.$date;
+
+            $createSql =<<<sdf
+CREATE TABLE `test`.`{$this->RESERVE_TABLE_NAME}`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_info` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '这个公司的产品信息',
+  `company_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '公司名称',
+  `company_detail` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '公司详情',
+  `gps` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用于脚本定位，防止脚本运行n次，每次的结果都是在之前n-1基础后去爬的，避免重复。用于脚本识别该从哪里开爬',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 62116 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+sdf;
+;
+            $this->pdo->exec($createSql);
+            echo '创建新表成功';
 
         } catch (PDOException $exception) {
             echo "Connection error message: " . $exception->getMessage();
@@ -114,7 +127,8 @@ class ReptilePage{
 
         $companyProductJson = json_encode($companyProduct,JSON_UNESCAPED_UNICODE);
         //使用PDO中的方法执行SQL语句
-        $sql = "INSERT INTO reptile_product(company_name,product_info,gps) VALUES (:company_name,:product_info,:gps)";
+        $tableName = $this->RESERVE_TABLE_NAME;
+        $sql = "INSERT INTO {$tableName}(company_name,product_info,gps) VALUES (:company_name,:product_info,:gps)";
         $ps = $pdo->prepare($sql);
         //数据绑定
         $ps->bindParam("company_name",$name);
@@ -122,6 +136,7 @@ class ReptilePage{
         $ps->bindParam("gps",$gps);
 
         $ps->execute();
+
     }
 
     public function start()
@@ -129,7 +144,8 @@ class ReptilePage{
         $arr = [[1,0,0],[0,1,0],[0,0,1]];
 
         $pdo = $this->pdo;
-        $sql = "SELECT gps FROM reptile_product order by id desc";
+        $tableName = $this->RESERVE_TABLE_NAME;
+        $sql = "SELECT gps FROM {$tableName} order by id desc";
         $ps = $pdo->prepare($sql);
         $ps->bindParam("company_name",$name);
         //执行SQL语句
@@ -163,11 +179,6 @@ class ReptilePage{
 
 
 }
-
-
-$app = new ReptilePage();
-
-$app->start();
 
 
 
