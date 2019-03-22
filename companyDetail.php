@@ -79,8 +79,78 @@ dsgf;
             }
 
         }catch (Exception $e){
-            var_dump($e->getMessage(),999999999999);
-            return;
+            var_dump($e->getMessage(),8888888);
+            sleep(5);
+            try{
+                while (true){
+                    $res = $this->client->request('POST', $url, [
+                        'form_params'=>
+                            [
+                                'strData' => $setData,
+                                'interfaceSet' => $interfaceSet,
+                                'uri' => $uri,
+                            ]
+                    ]);
+
+
+                    $resultDejson = json_decode($res->getBody(),true);
+
+                    if(!isset($resultDejson['ReturnData'])){
+                        var_dump($resultDejson);
+                        sleep(10);
+                        continue;
+                    }
+
+
+                    $result = $resultDejson['ReturnData'];
+
+                    if(!empty($result)){
+                        $companyName = $result['ExhibitorName'];
+                        $this->updateCompanyDetail($companyName,$result);
+                        return;
+
+                    }
+
+                    throw  new Exception("数据异常");
+
+                }
+            }catch (Exception $exception){
+                var_dump($e->getMessage(),777777);
+                sleep(5);
+                while (true){
+                    $res = $this->client->request('POST', $url, [
+                        'form_params'=>
+                            [
+                                'strData' => $setData,
+                                'interfaceSet' => $interfaceSet,
+                                'uri' => $uri,
+                            ]
+                    ]);
+
+
+                    $resultDejson = json_decode($res->getBody(),true);
+
+                    if(!isset($resultDejson['ReturnData'])){
+                        var_dump($resultDejson);
+                        sleep(10);
+                        continue;
+                    }
+
+
+                    $result = $resultDejson['ReturnData'];
+
+                    if(!empty($result)){
+                        $companyName = $result['ExhibitorName'];
+                        $this->updateCompanyDetail($companyName,$result);
+                        return;
+
+                    }
+
+                    throw  new Exception("数据异常");
+
+                }
+            }
+
         }
 
 

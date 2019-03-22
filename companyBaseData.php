@@ -102,7 +102,106 @@ sdf;
 
         }catch (Exception $e){
             var_dump($e->getMessage(),999999999999);
-            return;
+
+            sleep(5);
+
+            try{
+
+                while (true){
+                    $res = $this->client->request('POST', "http://i.cantonfair.org.cn/DataTransfer/Do", [
+                        'form_params'=>
+                            [
+                                'strData' => '{"QueryType":"1","Keyword":"","CategoryNo":"","StageOne":"'.$StageOne.'","StageTwo":"'.$StageTwo.'","StageThree":"'.$StagThree.'","Export":"0","Import":"0","PageIndex":"'.$PageIndex.'","PageSize":"15","Provinces":"","Countries":"","OrderBy":"1","Language":"1","NewExhibitor":"0","BrandsExhibitor":"0","ProduceExhibitor":"0","ForeignTradeExhibitor":"0","CFExhibitor":"0","OtherExhibitor":"0","OEMExhibitor":"0","ODMExhibitor":"0","OBMExhibitor":"0"}',
+                                'interfaceSet' => "ExhibitorListNew",
+                                'uri' => "http://i.cantonfair.org.cn/cn/SearchResult/Index?QueryType=1&KeyWord=&CategoryNo=&StageOne={$StageOne}&StageTwo={$StageTwo}&StageThree={$StagThree}&Export=0&Import=0&Provinces=&Countries=&ShowMode=1&NewProduct=0&CF=0&OwnProduct=0&PayMode=&NewCompany=0&BrandCompany=0&ForeignTradeCompany=0&ManufacturCompany=0&CFCompany=0&OtherCompany=0&OEM=0&ODM=0&OBM=0&OrderBy=1&producttab=2",
+                            ]
+                    ]);
+
+
+                    $resultDejson = json_decode($res->getBody(),true);
+
+                    if(!isset($resultDejson['ReturnData']) || !isset($resultDejson['ReturnData']['Exhibitors'])){
+                        var_dump($resultDejson);
+                        sleep(10);
+                        continue;
+                    }
+
+
+                    $result = $resultDejson['ReturnData']['Exhibitors'];
+
+                    if(!empty($result)){
+                        foreach ($result as $kk=>$vv){
+                            $companyName = $vv['Name'];
+                            $rt = $StageOne.'-'.$StageTwo.'-'.$StagThree.'-'.$companyName.'-'.$PageIndex;
+                            $gps = $StageOne.'-'.$StageTwo.'-'.$StagThree.'-'.$PageIndex;
+                            var_dump($rt);
+
+                            $companyProduct = $vv;
+                            $this->insertCompanyName($companyName,$companyProduct,$gps);
+                        }
+                    }else{
+                        var_dump($result);
+                        return;
+                    }
+
+                    if($PageIndex > 100000){
+                        var_dump('最大page错误');
+                        die;
+                    }
+                    $PageIndex++;
+
+                }
+
+            }catch (Exception $e){
+                var_dump($e->getMessage(),100000000);
+                sleep(5);
+
+                while (true){
+                    $res = $this->client->request('POST', "http://i.cantonfair.org.cn/DataTransfer/Do", [
+                        'form_params'=>
+                            [
+                                'strData' => '{"QueryType":"1","Keyword":"","CategoryNo":"","StageOne":"'.$StageOne.'","StageTwo":"'.$StageTwo.'","StageThree":"'.$StagThree.'","Export":"0","Import":"0","PageIndex":"'.$PageIndex.'","PageSize":"15","Provinces":"","Countries":"","OrderBy":"1","Language":"1","NewExhibitor":"0","BrandsExhibitor":"0","ProduceExhibitor":"0","ForeignTradeExhibitor":"0","CFExhibitor":"0","OtherExhibitor":"0","OEMExhibitor":"0","ODMExhibitor":"0","OBMExhibitor":"0"}',
+                                'interfaceSet' => "ExhibitorListNew",
+                                'uri' => "http://i.cantonfair.org.cn/cn/SearchResult/Index?QueryType=1&KeyWord=&CategoryNo=&StageOne={$StageOne}&StageTwo={$StageTwo}&StageThree={$StagThree}&Export=0&Import=0&Provinces=&Countries=&ShowMode=1&NewProduct=0&CF=0&OwnProduct=0&PayMode=&NewCompany=0&BrandCompany=0&ForeignTradeCompany=0&ManufacturCompany=0&CFCompany=0&OtherCompany=0&OEM=0&ODM=0&OBM=0&OrderBy=1&producttab=2",
+                            ]
+                    ]);
+
+
+                    $resultDejson = json_decode($res->getBody(),true);
+
+                    if(!isset($resultDejson['ReturnData']) || !isset($resultDejson['ReturnData']['Exhibitors'])){
+                        var_dump($resultDejson);
+                        sleep(10);
+                        continue;
+                    }
+
+
+                    $result = $resultDejson['ReturnData']['Exhibitors'];
+
+                    if(!empty($result)){
+                        foreach ($result as $kk=>$vv){
+                            $companyName = $vv['Name'];
+                            $rt = $StageOne.'-'.$StageTwo.'-'.$StagThree.'-'.$companyName.'-'.$PageIndex;
+                            $gps = $StageOne.'-'.$StageTwo.'-'.$StagThree.'-'.$PageIndex;
+                            var_dump($rt);
+
+                            $companyProduct = $vv;
+                            $this->insertCompanyName($companyName,$companyProduct,$gps);
+                        }
+                    }else{
+                        var_dump($result);
+                        return;
+                    }
+
+                    if($PageIndex > 100000){
+                        var_dump('最大page错误');
+                        die;
+                    }
+                    $PageIndex++;
+
+                }
+
+            }
         }
 
 

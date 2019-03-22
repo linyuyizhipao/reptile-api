@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="01725c33-7772-41c4-940a-b9149731e2fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.php" beforeDir="false" afterPath="$PROJECT_DIR$/run.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyBaseData.php" beforeDir="false" afterPath="$PROJECT_DIR$/companyBaseData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/companyDetail.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +29,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="5" />
-          <entry key="php" value="11" />
+          <entry key="php" value="12" />
           <entry key="sh" value="2" />
           <entry key="txt" value="4" />
         </counts>
@@ -37,7 +38,7 @@
         <counts>
           <entry key="Bash" value="2" />
           <entry key="Markdown" value="5" />
-          <entry key="PHP" value="11" />
+          <entry key="PHP" value="12" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -45,7 +46,7 @@
         <counts>
           <entry key="dummy" value="15" />
           <entry key="md" value="102" />
-          <entry key="php" value="2849" />
+          <entry key="php" value="2931" />
           <entry key="sh" value="112" />
         </counts>
       </usages-collector>
@@ -55,7 +56,7 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="13" />
           <entry key="Markdown" value="89" />
-          <entry key="PHP" value="2848" />
+          <entry key="PHP" value="2930" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
@@ -63,11 +64,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="170">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/companyBaseData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2">
+              <caret line="91" column="27" lean-forward="true" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+              <folding>
+                <element signature="e#4194#6571#0#PHP" />
+                <element signature="e#4246#6623#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,8 +89,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/companyDetail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="186">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+              <folding>
+                <element signature="e#856#948#0#PHP" />
+                <element signature="e#974#1002#0#PHP" />
+                <element signature="e#2215#3139#0#PHP" />
+                <element signature="e#2275#3199#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,6 +115,7 @@
       <find>p</find>
       <find>reptile_product</find>
       <find>die</find>
+      <find>999</find>
     </findStrings>
     <replaceStrings>
       <replace>reptile_product</replace>
@@ -109,11 +130,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/start.php" />
-        <option value="$PROJECT_DIR$/companyDetail.php" />
-        <option value="$PROJECT_DIR$/companyBaseData.php" />
         <option value="$PROJECT_DIR$/start.sh" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/run.php" />
+        <option value="$PROJECT_DIR$/companyBaseData.php" />
+        <option value="$PROJECT_DIR$/companyDetail.php" />
       </list>
     </option>
   </component>
@@ -195,18 +216,18 @@
       <updated>1552984348550</updated>
       <workItem from="1552984349866" duration="17610000" />
       <workItem from="1553063864591" duration="960000" />
-      <workItem from="1553136410363" duration="10385000" />
+      <workItem from="1553136410363" duration="11336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28955000" />
+    <option name="totallyTimeSpent" value="29906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15236051" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15236051" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -219,7 +240,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33734939" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3120482" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -279,24 +300,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/companyBaseData.php">
+    <entry file="file://$PROJECT_DIR$/run.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-811">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="170">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/companyDetail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="186">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="e#856#948#0#PHP" />
+            <element signature="e#974#1002#0#PHP" />
+            <element signature="e#2215#3139#0#PHP" />
+            <element signature="e#2275#3199#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.php">
+    <entry file="file://$PROJECT_DIR$/companyBaseData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="-2">
+          <caret line="91" column="27" lean-forward="true" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+          <folding>
+            <element signature="e#4194#6571#0#PHP" />
+            <element signature="e#4246#6623#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
